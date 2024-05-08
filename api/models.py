@@ -15,6 +15,7 @@ class Post(models.Model):
     post_id = ShortUUIDField(primary_key=True, length=12, editable=False)
     post_content = models.CharField(_("Content"), max_length=255)
     created_on = models.DateTimeField(_("Created On"), auto_now_add=True)
+    post_author = models.ForeignKey("api.ExtendedUser", verbose_name=_("Post Author"), on_delete=models.CASCADE)
 
 
     def save(self, *args, **kwargs):
@@ -27,4 +28,4 @@ class Post(models.Model):
         verbose_name_plural = _("Posts")
 
     def __str__(self):
-        return f"{self.post_content[:10]}"
+        return self.post_content
