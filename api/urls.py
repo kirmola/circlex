@@ -6,10 +6,11 @@ from api import views
 
 
 router = routers.DefaultRouter()
-router.register("users", views.UserViewSet)
+router.register("users", views.UserViewSet, basename="root-users-all")
+router.register("posts", views.PostsViewSet, basename="root-posts-all")
 
 user_router = routers.NestedDefaultRouter(router, r"users", lookup="user")
-user_router.register(r"posts", views.PostsViewSet, basename="user-posts")
+user_router.register(r"posts", views.PostsViewSet, basename="specific-post")
 
 urlpatterns = [
     path("", include(router.urls)),
