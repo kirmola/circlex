@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
-from .models import ExtendedUser
-from .serializers import UserSerializer
+from .models import ExtendedUser, Post
+from .serializers import UserSerializer, PostSerializer
 
 
 
@@ -10,5 +10,6 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
 
 
-# class PostsViewSet(ModelViewSet):
-#     queryset = ExtendedUser.objects.all()
+class PostsViewSet(ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
