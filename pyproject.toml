@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "circlex"
+version = "0.1.0"
+description = "A simple social media project for automatic posts generations"
+authors = ["Aman Rawat <kirmolaa@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+djangorestframework = "^3.15.1"
+markdown = "^3.6"
+django-filter = "^24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
