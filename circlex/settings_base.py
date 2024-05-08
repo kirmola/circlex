@@ -104,3 +104,25 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "api.ExtendedUser"
+
+
+######################### Apps created using startapp command####################################
+INSTALLED_APPS += [
+    "api",
+]
+
+
+######################### DRF Specific ###################################
+
+INSTALLED_APPS += [
+    "rest_framework",
+]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ]
+}
