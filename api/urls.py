@@ -10,7 +10,7 @@ router.register("users", views.UserViewSet, basename="root-users-all")
 router.register("posts", views.PostsViewSet, basename="root-posts-all")
 
 user_router = routers.NestedDefaultRouter(router, r"users", lookup="user")
-user_router.register(r"posts", views.PostsViewSet, basename="specific-post")
+user_router.register(r"posts", views.SpecificPostsViewSet, basename="specific-post")
 
 urlpatterns = [
     path("", include(router.urls)),
