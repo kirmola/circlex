@@ -99,7 +99,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = BASE_DIR / "staticroot"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -111,6 +111,7 @@ AUTH_USER_MODEL = "api.ExtendedUser"
 ######################### Apps created using startapp command####################################
 INSTALLED_APPS += [
     "api",
+    "frontend",
 ]
 
 
