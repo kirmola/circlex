@@ -13,11 +13,11 @@ DEBUG = True
 SECRET_KEY = environ["SECRET_KEY"]
 
 INSTALLED_APPS += [
-
+    'django_browser_reload',
 ]
 
 MIDDLEWARE += [
-
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 
@@ -30,3 +30,5 @@ DATABASES = {
 
 
 ROOT_URLCONF = 'circlex.urls_dev'
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"

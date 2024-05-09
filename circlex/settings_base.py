@@ -126,3 +126,18 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 
 }
+
+
+
+############################### Django-tailwind specific #####################################
+
+INSTALLED_APPS += [
+    "tailwind",
+    "theme"
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1"
+]
