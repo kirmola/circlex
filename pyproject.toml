@@ -19,6 +19,7 @@ cookiecutter = "^2.6.0"
 
 [tool.poetry.group.dev.dependencies]
 django-browser-reload = "^1.12.1"
+django-debug-toolbar = "^4.3.0"
 
 [build-system]
 requires = ["poetry-core"]

@@ -14,10 +14,14 @@ SECRET_KEY = environ["SECRET_KEY"]
 
 INSTALLED_APPS += [
     'django_browser_reload',
+    "debug_toolbar",
+
 ]
 
 MIDDLEWARE += [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+
 ]
 
 
