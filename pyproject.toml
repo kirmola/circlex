@@ -12,7 +12,6 @@ djangorestframework = "^3.15.1"
 markdown = "^3.6"
 django-filter = "^24.2"
 python-dotenv = "^1.0.1"
-drf-nested-routers = "^0.93.5"
 shortuuid = "^1.0.13"
 
 

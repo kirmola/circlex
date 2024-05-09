@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from api.models import ExtendedUser, Post
+from api.models import ExtendedUser, Post, Comment
 
 
 class UserSerializer(ModelSerializer):
@@ -11,4 +11,10 @@ class UserSerializer(ModelSerializer):
 class PostSerializer(ModelSerializer):
     class Meta:
         model = Post
+        fields = "__all__"
+
+
+class CommentSerializer(ModelSerializer):
+    class Meta:
+        model = Comment
         fields = "__all__"

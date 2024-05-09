@@ -2,9 +2,10 @@ from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
 from api.models import (
     ExtendedUser, 
-    Post
+    Post,
+    Comment
 )
-from api.serializers import UserSerializer, PostSerializer
+from api.serializers import UserSerializer, PostSerializer, CommentSerializer
 from django.shortcuts import get_list_or_404
 
 
@@ -17,7 +18,7 @@ class UserViewSet(ModelViewSet):
 class PostsViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    http_method_names = ["get", "post", "put", "patch"]
+    http_method_names = ["get", "post", "put", "patch", "delete"]
 
 
 class SpecificPostsViewSet(ModelViewSet):
@@ -28,3 +29,9 @@ class SpecificPostsViewSet(ModelViewSet):
         user_pk = self.kwargs.get("user_pk")
         post_id = self.kwargs.get("pk")
         return get_list_or_404(Post, post_author=user_pk)
+
+
+class CommentViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    http_method_names = ["get", "post", "put", "patch", "delete"]
