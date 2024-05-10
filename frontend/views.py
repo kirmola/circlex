@@ -23,6 +23,6 @@ class PostView(DetailView):
 
 
     def get_queryset(self):
-        return super().get_queryset().select_related("post_author").only("post_id", "post_content", "post_author__username", "post_author__first_name", "post_author__last_name", "post_author__profile_picture")
+        return super().get_queryset().select_related("post_author").only("post_id", "created_on", "post_content", "post_author__username", "post_author__first_name", "post_author__last_name", "post_author__profile_picture")
     
 
