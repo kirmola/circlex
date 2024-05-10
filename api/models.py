@@ -7,6 +7,7 @@ from shortuuid.django_fields import ShortUUIDField, ShortUUID
 
 class ExtendedUser(AbstractUser):
     bio = models.CharField(_("Bio"), max_length=300)
+    profile_picture = models.ImageField(_("Profile Picture"), upload_to="uploads/", height_field=None, width_field=None, max_length=None)
 
 
 
