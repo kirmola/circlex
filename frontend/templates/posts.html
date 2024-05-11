@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{object.post_author.first_name|add:" "|add:object.post_author.last_name}} on CircleX: "{{object|truncatechars:15}}"{% endblock title %}
+
+{% block main_content %}
+
+<blockquote>
+  <h4>{{object.post_content}}</h4>
+  <p><cite><h4>– {{object.post_author.first_name|add:" "|add:object.post_author.last_name}}</h4></cite></p>
+</blockquote>
+
+{% endblock main_content %}

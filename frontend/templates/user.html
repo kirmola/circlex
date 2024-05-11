@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ object.first_name|add:' '|add:object.last_name }} (@{{ object.username }})
+{% endblock %}
+{% block main_content %}
+<header>
+  <img style="border-radius: 100%; margin-top: 15px;" width="100px" height="100px" src="{{MEDIA_URL}}images/user.jpg" alt="" srcset="">
+  <h1>{{ object.first_name|add:' '|add:object.last_name }}</h1>
+  <p >@{{ object.username }}</p>
+</header>
+<main>
+  <p class="notice"></p>
+</main>
+{% endblock %}
