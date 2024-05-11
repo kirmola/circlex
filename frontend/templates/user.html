@@ -3,12 +3,57 @@
   {{ object.first_name|add:' '|add:object.last_name }} (@{{ object.username }})
 {% endblock %}
 {% block main_content %}
-<header>
-  <img style="border-radius: 100%; margin-top: 15px;" width="100px" height="100px" src="{{MEDIA_URL}}images/user.jpg" alt="" srcset="">
-  <h1>{{ object.first_name|add:' '|add:object.last_name }}</h1>
-  <p >@{{ object.username }}</p>
-</header>
-<main>
-  <p class="notice"></p>
-</main>
+  {% comment %} <header>
+    <img style="border-radius: 100%; margin-top: 15px;" width="100px" height="100px" src="{{ MEDIA_URL }}images/user.jpg" alt="" srcset="" />
+    <h1>{{ object.first_name|add:' '|add:object.last_name }}</h1>
+    <p>@{{ object.username }}</p>
+    <div class="header__profile_stats" style="display: flex; flex-direction: row; justify-content: center;">
+      <p>
+        <strong>Posts:</strong>
+      </p>
+      <p>
+        <strong>Joined on:</strong>
+      </p>
+    </div>
+  </header>
+  <main>
+    <p class="notice"></p>
+  </main> {% endcomment %}
+
+  <header>
+    <div class="header__container">
+      <div class="header__profile">
+        <img class="header__profile-image" src="{{ MEDIA_URL }}images/user.jpg" alt="User Profile Image" />
+        <div class="header__profile-info">
+          <h1>{{ object.first_name|add:' '|add:object.last_name }}</h1>
+          <p class="header__profile-username">@{{ object.username }}</p>
+        </div>
+        <div class="header__profile-stats">
+          <p>
+            <strong>Posts:</strong> 100
+          </p>
+          <p>
+            <strong>Joined on:</strong> {{ object.date_joined }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>About {{ object.first_name|add:' '|add:object.last_name }}</h2>
+      <p>{{ object.bio }}</p>
+    </section>
+
+    <section>
+      <h2>Recent Posts</h2>
+      <!-- Add this section within the <main> element -->
+      <section class="grid-container">
+        <div class="grid-item">
+          <p>Content for column 1 goes here.</p>
+        </div>
+      </section>
+    </section>
+  </main>
 {% endblock %}

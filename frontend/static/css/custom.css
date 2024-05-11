@@ -1,0 +1,27 @@
+:root{
+    --standard-border-radius: 20px;
+}
+
+.header__profile-image {
+    border-radius: 30%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-bottom: 2rem;
+  }
+  
+  .grid-item {
+    background-color: var(--accent-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--standard-border-radius);
+    padding: 1rem;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }

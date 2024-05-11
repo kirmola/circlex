@@ -18,6 +18,7 @@ INSTALLED_APPS += [
 
 ]
 
+
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django_browser_reload.middleware.BrowserReloadMiddleware",
@@ -36,3 +37,7 @@ DATABASES = {
 ROOT_URLCONF = 'circlex.urls_dev'
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+INTERNAL_IPS = [
+    "127.0.0.1"
+]
