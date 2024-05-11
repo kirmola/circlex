@@ -3,9 +3,40 @@
 
 {% block main_content %}
 
-<blockquote>
-  <h4>{{object.post_content}}</h4>
-  <p><cite><h4>– {{object.post_author.first_name|add:" "|add:object.post_author.last_name}}</h4></cite></p>
-</blockquote>
 
+<article class="post-detail">
+  <div class="post-header">
+    <img class="post-author-avatar" src="{{ MEDIA_URL }}images/user.jpg" alt="Author Avatar">
+    <div class="post-author-info">
+      <h3 class="post-author-name">{{ object.post_author.first_name|add:" "|add:object.post_author.last_name }}</h3>
+      <p class="post-author-username">@{{ object.post_author.username }}</p>
+    </div>
+  </div>
+  <blockquote class="post-content">
+    <p>{{ object.post_content }}</p>
+  </blockquote>
+  <div class="post-metadata">
+    <span class="post-timestamp">{{ object.post_created_at }}</span>
+  </div>
+</article>
+
+<article class="post-detail">
+  <!-- ... (Post detail HTML) ... -->
+  <div class="post-comments">
+    <h3>Comments</h3>
+    <div class="comment">
+      <div class="comment-header">
+        <img class="comment-author-avatar" src="user-avatar.jpg" alt="Author Avatar">
+        <div class="comment-author-info">
+          <h4 class="comment-author-name">John Doe</h4>
+          <p class="comment-author-username">@johndoe</p>
+        </div>
+      </div>
+      <p class="comment-content">This is a great post! I really enjoyed reading it.</p>
+      <div class="comment-metadata">
+        <span class="comment-timestamp">1 hour ago</span>
+      </div>
+    </div>
+  </div>
+</article>
 {% endblock main_content %}
