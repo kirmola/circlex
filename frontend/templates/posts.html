@@ -16,7 +16,7 @@
     <p>{{ object.post_content }}</p>
   </blockquote>
   <div class="post-metadata">
-    <span class="post-timestamp">{{ object.post_created_at }}</span>
+    <span class="post-timestamp"><strong>{{ object.created_on.date }} &centerdot; {{ object.created_on.time }}</strong></span>
   </div>
 </article>
 
