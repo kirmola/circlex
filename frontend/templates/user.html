@@ -30,7 +30,7 @@
         </div>
         <div class="header__profile-stats">
           <p>
-            <strong>Posts:</strong> 100
+            <strong>Posts:</strong> {{all_posts.count}}
           </p>
           <p>
             <strong>Joined on:</strong> {{ object.date_joined }}
@@ -48,11 +48,16 @@
 
     <section>
       <h2>Recent Posts</h2>
-      <!-- Add this section within the <main> element -->
       <section class="grid-container">
-        <div class="grid-item">
-          <p>Content for column 1 goes here.</p>
-        </div>
+        {% for post in all_posts %}
+        <a href="{% url "post-view" post_id=post.post_id %}" style="color: white;">
+          <div class="grid-item">
+            <blockquote class="post-content">
+              <p style="font-size: medium;">{{post|truncatewords:20}}</p>
+            </blockquote>
+          </div>
+        </a>
+        {% endfor %}
       </section>
     </section>
   </main>

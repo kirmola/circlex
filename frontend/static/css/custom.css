@@ -22,7 +22,8 @@ a {
     background-color: var(--accent-bg);
     border: 1px solid var(--border);
     border-radius: var(--standard-border-radius);
-    padding: 1rem;
+    padding: 5px;
+    min-height: auto;
   }
   
   @media only screen and (max-width: 720px) {
