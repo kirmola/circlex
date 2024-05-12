@@ -1,5 +1,10 @@
 :root{
     --standard-border-radius: 20px;
+    --accent: #8a2be2;
+}
+
+a {
+  text-decoration: none;
 }
 
 .header__profile-image {
@@ -38,6 +43,7 @@
     border: 1px solid var(--border);
     border-radius: var(--standard-border-radius);
     padding: 1rem;
+    margin-top: 10px;
   }
   
   .post-header {

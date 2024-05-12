@@ -9,7 +9,7 @@
     <img class="post-author-avatar" src="{{ MEDIA_URL }}images/user.jpg" alt="Author Avatar">
     <div class="post-author-info">
       <h3 class="post-author-name">{{ object.post_author.first_name|add:" "|add:object.post_author.last_name }}</h3>
-      <p class="post-author-username">@{{ object.post_author.username }}</p>
+      <a class="post-author-username" href="{% url "user-profile" username=object.post_author.username %}">@{{ object.post_author.username }}</a>
     </div>
   </div>
   <blockquote class="post-content">
@@ -24,7 +24,25 @@
   <!-- ... (Post detail HTML) ... -->
   <div class="post-comments">
     <h3>Comments</h3>
-    <div class="comment">
+    <div id="disqus_thread"></div>
+<script>
+    
+    var disqus_config = function () {
+    this.page.url = "{{request.build_absolute_uri}}";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "{{object.post_id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://circlex.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Comments can't be loaded because you chose to disable JavaScript</a></noscript>
+
+
+    {% comment %} This will be enabled later when I get free time {% endcomment %}
+    {% comment %} <div class="comment">
       <div class="comment-header">
         <img class="comment-author-avatar" src="user-avatar.jpg" alt="Author Avatar">
         <div class="comment-author-info">
@@ -36,7 +54,8 @@
       <div class="comment-metadata">
         <span class="comment-timestamp">1 hour ago</span>
       </div>
-    </div>
+    </div> {% endcomment %}
   </div>
 </article>
+<script id="dsq-count-scr" src="//circlex.disqus.com/count.js" async></script>
 {% endblock main_content %}
