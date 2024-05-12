@@ -133,3 +133,8 @@ REST_FRAMEWORK = {
 }
 
 
+####################### Sitemap #######################
+
+INSTALLED_APPS += [
+    "django.contrib.sitemaps",
+]

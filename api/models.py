@@ -3,12 +3,17 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from shortuuid.django_fields import ShortUUIDField, ShortUUID
+from django.urls import reverse
 
 
 class ExtendedUser(AbstractUser):
     bio = models.CharField(_("Bio"), max_length=300)
     profile_picture = models.ImageField(_("Profile Picture"), upload_to="uploads/", height_field=None, width_field=None, max_length=None)
 
+
+    def get_absolute_url(self):
+        return reverse("user-profile", kwargs={"username": self.username})
+    
 
 
 class Post(models.Model):
@@ -24,6 +29,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.post_content
+
+
+    def get_absolute_url(self):
+        return reverse("post-view", kwargs={"post_id": self.post_id})
+    
 
 
 class Comment(models.Model):

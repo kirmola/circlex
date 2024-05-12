@@ -16,11 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.sitemaps import views
+from circlex.sitemaps import UserSitemap, PostSitemap
+
+sitemaps = {
+    "user":UserSitemap,
+    "post":PostSitemap,
+}
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("frontend.urls")),
+    path("sitemap.xml", views.index, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.index"),
+    path("sitemap-<section>.xml", views.sitemap, {"sitemaps":sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path("api/", include("api.urls")),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
 
 ]
